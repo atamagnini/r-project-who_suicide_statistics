@@ -4,7 +4,7 @@ library(data.table)
 library(htmltools)
 
 #Loading multiple .csv files into the same data frame
-folder <- "D:/R scripts/script_030821_who_suicide_statistics/data/datasets"
+folder <- "~/datasets/"
 file_list <- list.files(path = folder, pattern = '*.csv')
 data <- do.call("rbind", lapply(file_list, function(x)
                          read.csv(paste(folder, x, sep = ''),
@@ -17,7 +17,7 @@ patterns <- c("X60","X61","X62","X63","X64","X65","X66","X67","X68","X69","X70",
 df2 <- filter(df, grepl(paste(patterns, collapse="|"), Cause))
 
 #merging 2 dfs
-countriesdf <- read_csv("D:/R scripts/script_030821_who_suicide_statistics/data/countries.csv")
+countriesdf <- read_csv("~/countries.csv")
 glimpse(countriesdf)
 df3 <- merge(x=countriesdf, y=df2, all.y = TRUE)
 
