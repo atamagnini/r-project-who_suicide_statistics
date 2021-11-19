@@ -2,6 +2,7 @@ library(tidyverse)
 library(highcharter)
 library(data.table)
 library(htmltools)
+library(htmlwidgets)
 
 #Loading multiple .csv files into the same data frame
 folder <- "~/datasets/"
@@ -87,4 +88,8 @@ p4
 
 subplot <- hw_grid(p4,p3,p2,p)
 subplot
+saveWidget(p, 'whosui1.html')
+saveWidget(p2, 'who_sui_2.html')
+saveWidget(p3, 'who_sui_3.html')
+saveWidget(p4, 'who_sui_4.html')
 save_html(subplot, 'plot.html')
